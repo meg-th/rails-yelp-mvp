@@ -6,8 +6,8 @@
 	<%= f.input :address %>
 	<%= f.input :phone_number %>
 	<%= f.input :category, prompt: "Choose a cuisine category", collection: ["chinese", "italian", "japanese", "french", "belgian"] %>
-	<%= f.button :submit %>
-<% end %>
-  
+	<%= f.button :submit, class: "btn btn-primary"%>
+  <% end %>
   </div>
+  <%= link_to "Return to homepage", restaurants_path %>
 </div>

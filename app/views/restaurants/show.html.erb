@@ -1,10 +1,21 @@
 <div class= "container">
   <div class = "details">
     <h1><%=@restaurant.name%></h1>
-    <h2><%=@restaurant.address%></h2>
-    <h2><%=@restaurant.phone_number %></h2>
-    <h2><%=@restaurant.category.capitalize%></h2>
+    <p><%=@restaurant.address%></p>
+    <p><%=@restaurant.phone_number %></p>
+    <p><%=@restaurant.category.capitalize%></p>
   </div>
-  <p><%= link_to "Return to our restaurant index", restaurants_path%></p>
+  <p><%= link_to "Return to homepage", restaurants_path%></p>
+  <br>
+  <p><%= link_to " + Add a review", new_restaurant_review_path(@restaurant) %></p>
+  <div class = "reviews">
+    <h2>Reviews for <%= @restaurant.name%></h2>
+    <ul class="list-group">
+      <%  @restaurant.reviews.each do |review| %>
+        <li class="list-group-item"><%= review.content %></li>
+        <p>Rating:  <%= review.rating %> <%= link_to "DELETE REVIEW", review_path, method: :delete %></p>
+      <% end %>
+    </ul>
+  </div>
 </div>
 
